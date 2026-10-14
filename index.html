@@ -1,0 +1,2231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Johntech Vendors Limited | Water Vending, Purification & Dairy Equipment</title>
+  <meta name="description" content="Official Product Catalogue of Johntech Vendors Limited. Quality water vending machines, RO & UF purification plants, milk ATMs, and food processing equipment in Kenya.">
+  <meta name="theme-color" content="#0b2d55">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- jsPDF for client-side PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <style>
+    :root {
+      --navy: #0b2d55;
+      --navy-dark: #071c36;
+      --navy-light: #164273;
+      --blue: #0284c7;
+      --blue-hover: #0369a1;
+      --water-cyan: #0ea5e9;
+      --water-light: #e0f2fe;
+      --sky: #f0f7fd;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --card-border: #e6edf5;
+      --paper: #ffffff;
+      --soft: #f8fafc;
+      --green: #10b981;
+      --green-dark: #059669;
+      --whatsapp: #25d366;
+      --whatsapp-dark: #128c7e;
+      --red: #ef4444;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow-sm: 0 2px 8px rgba(11, 45, 85, 0.04);
+      --shadow: 0 10px 30px rgba(11, 45, 85, 0.08);
+      --shadow-hover: 0 20px 38px rgba(11, 45, 85, 0.14);
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--ink);
+      background-color: var(--paper);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .brand-title, .price {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    .wrap {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* Top Announcement Bar */
+    .top-strip {
+      background: var(--navy-dark);
+      color: #93c5fd;
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .top-strip-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .top-strip-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-strip a {
+      color: #bfdbfe;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .top-strip a:hover {
+      color: #ffffff;
+    }
+
+    /* Header & Navigation */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      transition: var(--transition);
+    }
+
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: #ef4444;
+    }
+
+    .brand-subtitle {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .nav-links a {
+      transition: var(--transition);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--blue);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(11, 45, 85, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(11, 45, 85, 0.28);
+    }
+
+    .btn-secondary {
+      background: var(--blue);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28);
+    }
+
+    .btn-secondary:hover {
+      background: var(--blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--navy);
+      border-color: var(--line);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--navy);
+      background: var(--sky);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp:hover {
+      background: #1eb956;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-light {
+      background: var(--water-light);
+      color: var(--navy);
+    }
+
+    .btn-light:hover {
+      background: #bae6fd;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: var(--navy);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 78px;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-bottom: 2px solid var(--line);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      z-index: 99;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-drawer.active {
+      display: flex;
+    }
+
+    .mobile-drawer a {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 60px 0 50px;
+      background: radial-gradient(circle at 90% 15%, #e0f2fe 0%, transparent 40%),
+                  linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--water-light);
+      color: var(--blue-hover);
+      border: 1px solid #bae6fd;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--water-cyan);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 4.4vw, 54px);
+      margin-bottom: 18px;
+      color: var(--navy);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--blue);
+      position: relative;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 30px;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-trust-note {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .trust-check-badge {
+      width: 24px;
+      height: 24px;
+      background: #dcfce7;
+      color: var(--green-dark);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #ffffff 0%, #f0f7fd 100%);
+      border: 1px solid #dbeafe;
+      padding: 20px;
+      box-shadow: 0 20px 45px rgba(2, 132, 199, 0.12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hero-banner-img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(11, 45, 85, 0.1);
+      display: block;
+    }
+
+    .hero-banner-floating {
+      position: absolute;
+      bottom: 34px;
+      left: 34px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 14px;
+      padding: 12px 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-banner-floating .jvl-badge {
+      width: 38px;
+      height: 38px;
+      background: var(--navy);
+      color: white;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .hero-banner-floating div strong {
+      display: block;
+      font-size: 14px;
+      color: var(--navy);
+    }
+
+    .hero-banner-floating div small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Trust Highlights Strip */
+    .trust-strip {
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+      padding: 22px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .trust-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .trust-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--water-light);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-soft {
+      background: var(--soft);
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .section-header-text h2 {
+      font-size: clamp(28px, 3.2vw, 38px);
+      margin-top: 6px;
+      color: var(--navy);
+    }
+
+    .section-header-text p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 8px;
+      max-width: 600px;
+    }
+
+    /* Catalogue Controls */
+    .catalogue-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+      background: var(--paper);
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px 0 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      font-size: 14.5px;
+      color: var(--ink);
+      background: var(--soft);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--blue);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-btn .count {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.05);
+      font-weight: 600;
+    }
+
+    .filter-btn:hover {
+      background: #e2e8f0;
+      color: var(--navy);
+    }
+
+    .filter-btn.active {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+    }
+
+    .filter-btn.active .count {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .results-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--paper);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: #cbd5e1;
+    }
+
+    .product-image-wrap {
+      height: 240px;
+      background: radial-gradient(circle at center, #ffffff 30%, #f1f7fc 100%);
+      position: relative;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .product-image-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+      filter: drop-shadow(0 8px 12px rgba(11, 45, 85, 0.09));
+    }
+
+    .product-card:hover .product-image-wrap img {
+      transform: scale(1.05);
+    }
+
+    .category-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(11, 45, 85, 0.1);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: 999px;
+    }
+
+    .product-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category-name {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .product-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 8px;
+      min-height: 48px;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .product-specs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .spec-pill {
+      font-size: 11px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .product-pricing {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .price-current {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+
+    .price-old {
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .btn-enquire {
+      background: #ecfdf5;
+      color: var(--green-dark);
+      border: 1px solid #a7f3d0;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-enquire:hover {
+      background: var(--green);
+      color: #ffffff;
+      border-color: var(--green);
+    }
+
+    .btn-view-quick {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      color: var(--navy);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .btn-view-quick:hover {
+      background: #e2e8f0;
+    }
+
+    /* Advantage Section */
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .advantage-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .advantage-card {
+      background: var(--paper);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .advantage-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: #cbd5e1;
+    }
+
+    .advantage-card.full-width {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #f0f7fd 0%, #ffffff 100%);
+      border-color: #bae6fd;
+    }
+
+    .advantage-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--water-light);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .advantage-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .advantage-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Technical Prerequisites */
+    .prereq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .prereq-card {
+      background: var(--paper);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .prereq-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: #2563eb;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .prereq-card h3 {
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .prereq-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .prereq-alert {
+      margin-top: 28px;
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-size: 13.5px;
+      color: #92400e;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(145deg, #071c36 0%, #0b2d55 100%);
+      color: #ffffff;
+      padding: 72px 0;
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-info h2 {
+      color: #ffffff;
+      font-size: clamp(32px, 3.8vw, 44px);
+      margin-bottom: 14px;
+    }
+
+    .contact-tagline {
+      font-size: 17px;
+      color: #7dd3fc;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .contact-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 16px;
+    }
+
+    .contact-detail-item a {
+      color: #ffffff;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .contact-detail-item a:hover {
+      color: #38bdf8;
+      text-decoration: underline;
+    }
+
+    .contact-icon-pill {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      color: #38bdf8;
+      flex-shrink: 0;
+    }
+
+    .contact-actions-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .qr-card {
+      background: #ffffff;
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      color: var(--navy);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .qr-card img {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+
+    .qr-card strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .qr-card small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--navy-dark);
+      color: #94a3b8;
+      padding: 30px 0;
+      font-size: 13px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner a:hover {
+      color: #ffffff;
+    }
+
+    /* Quick Details Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 45, 85, 0.65);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: grid;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: modalFade 0.3s ease;
+    }
+
+    @keyframes modalFade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(0, 0, 0, 0.06);
+      border: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      z-index: 10;
+      transition: var(--transition);
+    }
+
+    .modal-close-btn:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+    }
+
+    .modal-img-wrap {
+      background: radial-gradient(circle, #ffffff 40%, #f1f7fc 100%);
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-img-wrap img {
+      max-width: 100%;
+      max-height: 320px;
+      object-fit: contain;
+    }
+
+    .modal-body {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-body h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .modal-body p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--navy);
+      color: #ffffff;
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Hidden PDF Render Container */
+    #pdf-render-area {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      width: 794px; /* A4 standard width at 96dpi */
+      background: #ffffff;
+      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .pdf-page {
+      width: 794px;
+      min-height: 1123px; /* A4 standard height at 96dpi */
+      padding: 40px;
+      background: #ffffff;
+      page-break-after: always;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .pdf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #0b2d55;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    .pdf-footer {
+      position: absolute;
+      bottom: 25px;
+      left: 40px;
+      right: 40px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .prereq-grid {
+        grid-template-columns: 1fr;
+      }
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .advantage-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions .btn-outline {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .advantage-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-img-wrap {
+        height: 220px;
+      }
+      .top-strip {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        width: calc(100% - 32px);
+      }
+      .hero h1 {
+        font-size: 32px;
+      }
+      .filter-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 6px;
+      }
+      .filter-btn {
+        white-space: nowrap;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .header, .top-strip, .hero-actions, .catalogue-controls, .btn-enquire, .btn-view-quick, .footer, .toast {
+        display: none !important;
+      }
+      body {
+        background: #ffffff;
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .product-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Informational Strip -->
+  <div class="top-strip">
+    <div class="wrap top-strip-inner">
+      <div>
+        <span>Quality • Reliability • Service — Automated Vending & Water Solutions</span>
+      </div>
+      <div class="top-strip-links">
+        <a href="tel:+254790825018">
+          <span>📞</span> Call: <strong>0790 825 018</strong>
+        </a>
+        <a href="https://wa.me/254790825018" target="_blank" rel="noopener">
+          <span>💬</span> WhatsApp Support
+        </a>
+        <a href="https://johntechvendorsltd.co.ke" target="_blank" rel="noopener">
+          <span>🌐</span> johntechvendorsltd.co.ke
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="header">
+    <div class="wrap nav">
+      <a href="#home" class="brand">
+        <img src="images/logo.png" alt="Johntech Vendors Limited Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-title">JOHNTECH <span>VENDORS</span></span>
+          <span class="brand-subtitle">VENDORS LIMITED</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#catalogue">Products</a>
+        <a href="#advantage">Our Advantages</a>
+        <a href="#prerequisites">Technical Prerequisites</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#catalogue" class="btn btn-outline">Browse Products</a>
+        <a href="#download" onclick="generateCataloguePDF(event)" class="btn btn-primary" id="btnDownloadTop">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Download PDF
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#home" onclick="toggleMobileMenu()">Home</a>
+    <a href="#catalogue" onclick="toggleMobileMenu()">Products Catalogue</a>
+    <a href="#advantage" onclick="toggleMobileMenu()">The JohnTech Advantage</a>
+    <a href="#prerequisites" onclick="toggleMobileMenu()">Technical Prerequisites</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact Us</a>
+    <a href="#download" onclick="toggleMobileMenu(); generateCataloguePDF(event);" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
+      Download Catalogue PDF
+    </a>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Official 2026 Product Catalogue
+          </span>
+          <h1>Quality Equipment. <em>Reliable Solutions.</em></h1>
+          <p class="hero-desc">
+            Explore our range of water vending machines, water purification systems, milk ATMs and food processing equipment engineered for long-lasting performance and maximum commercial return.
+          </p>
+          <div class="hero-actions">
+            <a href="#catalogue" class="btn btn-secondary">
+              Browse Products
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            <a href="#download" onclick="generateCataloguePDF(event)" class="btn btn-outline" id="btnDownloadHero">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Download Catalogue PDF
+            </a>
+          </div>
+          <div class="hero-trust-note">
+            <div class="trust-check-badge">✓</div>
+            <span><strong>Complimentary Support:</strong> Free installation, delivery within Nairobi, heat gun & operator training included.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-visual-card">
+            <img src="images/Johntech Water Solutions Catalogue (1).png" alt="Johntech Vendors Limited Catalogue Cover" class="hero-banner-img">
+            <div class="hero-banner-floating">
+              <img src="images/logo.png" alt="JVL" style="width: 44px; height: 44px; object-fit: contain; background: white; border-radius: 8px; padding: 2px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.12);">
+              <div>
+                <strong>Johntech Vendors Limited</strong>
+                <small>Innovative Water & Dairy Solutions</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Highlights Strip -->
+    <div class="trust-strip">
+      <div class="wrap trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">🛠️</div>
+          <div>
+            <strong>Free Installation</strong>
+            <div style="font-size: 11.5px; color: var(--muted); font-weight: normal;">Professional setup by experts</div>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🚚</div>
+          <div>
+            <strong>Free Delivery</strong>
+            <div style="font-size: 11.5px; color: var(--muted); font-weight: normal;">Within Nairobi & surrounding areas</div>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🎓</div>
+          <div>
+            <strong>Free Training</strong>
+            <div style="font-size: 11.5px; color: var(--muted); font-weight: normal;">Operator commissioning & support</div>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🔬</div>
+          <div>
+            <strong>Free Water Testing</strong>
+            <div style="font-size: 11.5px; color: var(--muted); font-weight: normal;">Source water TDS & salinity testing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Catalogue Section -->
+    <section class="section" id="catalogue">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="section-header-text">
+            <span class="eyebrow"><span class="eyebrow-dot"></span> Full Equipment Range</span>
+            <h2>Product Catalogue</h2>
+            <p>Browse by category or search by model name. Prices and specifications are directly from our verified catalogue.</p>
+          </div>
+          <a href="#download" onclick="generateCataloguePDF(event)" class="btn btn-outline" id="btnDownloadCat">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            Download Catalogue PDF
+          </a>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="catalogue-controls">
+          <div class="search-row">
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="searchInput" placeholder="Search equipment by name, capacity (e.g. 500 LPH, 300L) or description..." oninput="handleSearch()">
+            </div>
+          </div>
+          <div class="filter-tabs" id="filterTabs">
+            <!-- Filter buttons injected by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-bar">
+          <span id="resultsCount">Showing all products</span>
+          <span id="activeFilterLabel" style="font-weight: 700; color: var(--navy);">All Categories</span>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="product-grid" id="productGrid">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- The JohnTech Advantage Section -->
+    <section class="section section-soft" id="advantage">
+      <div class="wrap advantage-grid">
+        <div class="advantage-intro">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> Complimentary Value</span>
+          <h2>The JohnTech Advantage</h2>
+          <p style="font-size: 17px; color: var(--blue); font-weight: 700; margin: 12px 0 16px;">
+            We support your business from day one. Your investment, enhanced.
+          </p>
+          <p style="color: var(--muted); font-size: 15px; margin-bottom: 24px; line-height: 1.65;">
+            Purchasing commercial equipment is an investment in your future. At Johntech Vendors Limited, every machine comes paired with essential complimentary accessories and hands-on professional services so you can start generating revenue immediately without unexpected startup costs.
+          </p>
+          <a href="https://wa.me/254790825018?text=Hello%20Johntech%20Vendors%20Limited,%20I%20would%20like%20to%20learn%20more%20about%20your%20equipment%20and%20complimentary%20services." target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <span>💬</span> Talk to our Team on WhatsApp
+          </a>
+        </div>
+
+        <div class="advantage-cards-grid">
+          <div class="advantage-card">
+            <div class="advantage-icon">🔧</div>
+            <h3>Free Professional Installation</h3>
+            <p>Our skilled technicians handle the complete piping, electrical connections, and system calibration at your site.</p>
+          </div>
+
+          <div class="advantage-card">
+            <div class="advantage-icon">🚚</div>
+            <h3>Free Delivery</h3>
+            <p>Reliable and secure transportation of your equipment anywhere within Nairobi and its surrounding metropolitan areas.</p>
+          </div>
+
+          <div class="advantage-card">
+            <div class="advantage-icon">🔥</div>
+            <h3>Free Heat Gun</h3>
+            <p>Professional high-temperature heat gun included for applying tamper-proof heat shrink seals onto your water bottles.</p>
+          </div>
+
+          <div class="advantage-card">
+            <div class="advantage-icon">🛡️</div>
+            <h3>Free Starting Top & Security Seals</h3>
+            <p>Complete starter pack of hygienic bottle caps and tamper-evident security neck seals to get your operations running.</p>
+          </div>
+
+          <div class="advantage-card full-width">
+            <div class="advantage-icon">👨‍🏫</div>
+            <h3>Free Operator Training & Commissioning</h3>
+            <p>Comprehensive hands-on training for you and your staff covering daily operation, routine maintenance, cleaning cycles, filter replacement, and troubleshooting to ensure smooth running.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Prerequisites Section -->
+    <section class="section" id="prerequisites">
+      <div class="wrap">
+        <div class="section-header">
+          <div class="section-header-text">
+            <span class="eyebrow"><span class="eyebrow-dot"></span> Site Preparation Guide</span>
+            <h2>Technical Prerequisites</h2>
+            <p>Essential operating requirements to ensure optimal water pressure, system durability, and water quality.</p>
+          </div>
+        </div>
+
+        <div class="prereq-grid">
+          <div class="prereq-card">
+            <div class="prereq-icon-box">🛢️</div>
+            <h3>Water Storage Requirement</h3>
+            <p>
+              A minimum <strong>2,000-litre water storage tank</strong> is required for optimal operation. This ensures consistent inlet flow pressure and prevents dry-run damage to the high-pressure filtration pumps.
+            </p>
+          </div>
+
+          <div class="prereq-card">
+            <div class="prereq-icon-box">🧪</div>
+            <h3>Free Source Water Testing</h3>
+            <p>
+              For Reverse Osmosis (RO) and Ultrafiltration (UF) machines, Johntech tests your source water for salt and Total Dissolved Solids (TDS) levels free of charge. This allows us to customize the ideal membrane setup for your water source.
+            </p>
+          </div>
+
+          <div class="prereq-card">
+            <div class="prereq-icon-box">📋</div>
+            <h3>Printed Laboratory Report</h3>
+            <p>
+              Standard in-house water testing is completely free. Should you require a formal, printed comprehensive laboratory test report for KEBS compliance or regulatory audits, it is available upon request for <strong>KES 5,500</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="prereq-alert">
+          <span style="font-size: 20px;">ℹ️</span>
+          <div>
+            <strong>Technical Note:</strong> Please confirm your site's power availability (single-phase vs three-phase) and source water type (municipal tap water vs borehole/well) with Johntech technicians prior to delivery so equipment configurations are matched precisely.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Ordering Section -->
+    <section class="contact-section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-info">
+          <span class="eyebrow" style="background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); color: #bae6fd;">
+            Get In Touch
+          </span>
+          <h2>JOHNTECH VENDORS LIMITED</h2>
+          <p class="contact-tagline">“Innovative Water Solutions for a Sustainable Future.”</p>
+          <p style="color: #cbd5e1; font-size: 15px; margin-bottom: 28px; max-width: 500px; line-height: 1.6;">
+            We are ready to guide you in choosing the ideal equipment for your business, farm, or institution. Reach out today for quotations, site visits, or inquiries.
+          </p>
+
+          <div class="contact-details-list">
+            <div class="contact-detail-item">
+              <div class="contact-icon-pill">📍</div>
+              <div>
+                <small style="color: #94a3b8; display: block; font-size: 12px;">Physical Location</small>
+                <span style="color: #ffffff; font-weight: 600; font-size: 13.5px;">Thika Road, Ruiru, Ihunguro, behind Shell Petrol Station.</span>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-icon-pill">📞</div>
+              <div>
+                <small style="color: #94a3b8; display: block; font-size: 12px;">Call Our Team Directly</small>
+                <a href="tel:+254790825018">0790 825 018</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-icon-pill">💬</div>
+              <div>
+                <small style="color: #94a3b8; display: block; font-size: 12px;">Direct WhatsApp Consultation</small>
+                <a href="https://wa.me/254790825018" target="_blank" rel="noopener">Chat on WhatsApp: +254 790 825 018</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-icon-pill">🌐</div>
+              <div>
+                <small style="color: #94a3b8; display: block; font-size: 12px;">Official Web Portal</small>
+                <a href="https://johntechvendorsltd.co.ke" target="_blank" rel="noopener">johntechvendorsltd.co.ke</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-actions-row">
+            <a href="https://wa.me/254790825018" target="_blank" rel="noopener" class="btn btn-whatsapp">
+              <span>💬</span> Send WhatsApp Message
+            </a>
+            <a href="tel:+254790825018" class="btn" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.25);">
+              <span>📞</span> Call 0790 825 018
+            </a>
+            <a href="#download" onclick="generateCataloguePDF(event)" class="btn" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.25);" id="btnDownloadContact">
+              <span>📥</span> Download PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card-wrap">
+          <div class="qr-card">
+            <img src="images/image.png" alt="Johntech Vendors Limited QR Code">
+            <strong>Scan to Connect</strong>
+            <small>Scan with your phone camera for full product range, direct phone dialer and WhatsApp chat.</small>
+            <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid #e2e8f0; font-size: 13px; font-weight: 700; color: var(--navy);">
+              Phone: 0790 825 018
+            </div>
+            <div style="font-size: 11.5px; color: var(--muted); margin-top: 4px;">
+              Thika Road, Ruiru, Ihunguro
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="images/logo.png" alt="Johntech Vendors Limited Logo" style="height: 36px; width: 36px; object-fit: contain; filter: brightness(1.1);">
+        <div>
+          <strong>© <span id="currentYear"></span> Johntech Vendors Limited.</strong> All rights reserved.
+        </div>
+      </div>
+      <div>
+        Thika Road, Ruiru, Ihunguro, behind Shell Petrol Station · 0790 825 018
+      </div>
+      <div>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quickModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeModal()" aria-label="Close modal">✕</button>
+      <div class="modal-grid">
+        <div class="modal-img-wrap">
+          <img id="modalImg" src="" alt="Product">
+        </div>
+        <div class="modal-body">
+          <span class="category-badge" id="modalCategory" style="position: static; display: inline-block; margin-bottom: 10px; width: fit-content;"></span>
+          <h3 id="modalTitle">Product Title</h3>
+          <p id="modalDesc">Product description goes here.</p>
+          <div id="modalSpecs" class="product-specs"></div>
+          <div class="product-pricing" style="margin-top: auto;">
+            <div class="price-current" id="modalPrice">KES 0.00</div>
+            <div class="price-old" id="modalOldPrice"></div>
+          </div>
+          <div style="display: flex; gap: 10px; margin-top: 16px;">
+            <a id="modalWhatsappBtn" href="#" target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1;">
+              <span>💬</span> Make an Enquiry
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Element -->
+  <div class="toast" id="toastBox">
+    <span id="toastIcon">✓</span>
+    <span id="toastMsg">Notification message</span>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // Verified 22 products extracted from the uploaded catalogue files
+    const productsData = [
+      {
+        id: 1,
+        name: "One Tap Manual Water Vending Machine (Table Design)",
+        category: "Water Vending Machines",
+        categoryId: "water-vending",
+        image: "images/da0fd7d7-3665-4a78-97f3-941838ef557b-removebg-preview (1).png",
+        price: "KES 65,000.00",
+        oldPrice: "KES 70,000.00",
+        desc: "Table design water vending machine for refilling already purified water. Compact and ideal for shops, kiosks, and retail refill stations.",
+        specs: ["1 Manual Tap", "Table Design", "Compact Footprint", "Stainless Basin"]
+      },
+      {
+        id: 2,
+        name: "One Tap Automatic Water Vending Machine (Cabinet Design)",
+        category: "Water Vending Machines",
+        categoryId: "water-vending",
+        image: "images/7fbfe3e3-f5f8-4d5c-8de4-17b56f00a0ad-removebg-preview (1).png",
+        price: "KES 75,000.00",
+        oldPrice: "KES 90,000.00",
+        desc: "Upright cabinet design with automated digital control and keypad for refilling already purified water accurately.",
+        specs: ["1 Automatic Tap", "Cabinet Design", "Digital Keypad", "Enclosed Filling Chamber"]
+      },
+      {
+        id: 3,
+        name: "Two Taps (Automatic) Water Vending Machine",
+        category: "Water Vending Machines",
+        categoryId: "water-vending",
+        image: "images/771ebeb8-5452-4307-8928-385d8d8321e6-removebg-preview (1).png",
+        price: "KES 110,000.00",
+        oldPrice: "KES 125,000.00",
+        desc: "Dual-tap automatic water vending machine with twin digital micro-controllers for refilling already purified water at higher customer traffic.",
+        specs: ["2 Automatic Taps", "Twin Digital Controllers", "Stainless Steel Enclosure", "Fast Dispensing"]
+      },
+      {
+        id: 4,
+        name: "Water Refilling with a 300Ltrs Holding Tank (Automatic 2 Taps)",
+        category: "Water Vending Machines",
+        categoryId: "water-vending",
+        image: "images/986a5a9a-4f11-4108-a111-391d6ac48711-removebg-preview (1).png",
+        price: "KES 125,000.00",
+        oldPrice: "KES 130,000.00",
+        desc: "Water refilling station equipped with a 300-litre stainless steel overhead holding tank and 2 automatic taps for already purified water.",
+        specs: ["300L Holding Tank", "2 Automatic Taps", "Gravity / Pump Flow", "Food-Grade Stainless"]
+      },
+      {
+        id: 5,
+        name: "Two Taps (Automatic) Water Vending Machine with Rinser",
+        category: "Water Vending Machines",
+        categoryId: "water-vending",
+        image: "images/f441795e-d390-4504-b780-b2d114c2f052-removebg-preview (1).png",
+        price: "KES 105,000.00",
+        oldPrice: "KES 115,000.00",
+        desc: "Two taps automatic water vending setup featuring an integrated side bottle rinser sink for refilling already purified water hygienically.",
+        specs: ["2 Automatic Taps", "Bottle Rinser Sink", "Digital Price/Volume Metering", "Hygiene Ready"]
+      },
+      {
+        id: 6,
+        name: "Water Vending Machine with 500 Liters Holding Tank (Manual)",
+        category: "Water Vending Machines",
+        categoryId: "water-vending",
+        image: "images/bd4f1436-407e-4b8c-bf92-258c51eeee7d-removebg-preview (1).png",
+        price: "KES 130,000.00",
+        oldPrice: "KES 140,000.00",
+        desc: "Heavy-duty manual water vending station fitted with a 500-litre stainless storage tank and bottle washing station for high-capacity refilling.",
+        specs: ["500L Storage Tank", "Manual Dispensing Taps", "Bottle Rinser Attached", "Commercial Grade"]
+      },
+      {
+        id: 7,
+        name: "One Tap Automatic Water Vending Machine (Table Design)",
+        category: "Water Vending Machines",
+        categoryId: "water-vending",
+        image: "images/e219229c-c54e-4d1d-a058-f05efc551118-removebg-preview (1).png",
+        price: "KES 75,000.00",
+        oldPrice: "KES 80,000.00",
+        desc: "Compact table design with swan-neck tap and digital keypad for automated dispensing of purified drinking water.",
+        specs: ["1 Automatic Tap", "Tabletop Setup", "Digital PLC Keypad", "Stainless Basin"]
+      },
+      {
+        id: 8,
+        name: "Milk ATM (Capacity From 50Ltrs)",
+        category: "Milk ATMs",
+        categoryId: "milk-atms",
+        image: "images/939eaab0-9fb3-49e1-b8e6-ff36a7c82885-removebg-preview (1).png",
+        price: "From KES 65,000.00",
+        oldPrice: null,
+        desc: "Automated commercial milk vending machine with food-grade sanitary pump, precise digital calibration, and cooling preservation from 50L capacity.",
+        specs: ["From 50 Litres", "Food-Grade Stainless", "Accurate Digital Metering", "Password Protected"]
+      },
+      {
+        id: 9,
+        name: "Salad ATM (Cooking Oil Dispenser)",
+        category: "Salad ATMs",
+        categoryId: "salad-atms",
+        image: "images/3c8fd046-c22f-4671-ba8d-edf8e432f049-removebg-preview (1).png",
+        price: "From KES 29,000.00",
+        oldPrice: null,
+        desc: "Smart cooking oil dispenser starting from 20 litres. Perfect for retail kiosks and supermarkets to dispense salad oil by monetary value.",
+        specs: ["From 20 Litres", "Oil-Specific Pump", "Monetary Dispensing", "Compact Footprint"]
+      },
+      {
+        id: 10,
+        name: "Ultrafiltration Machine 1000 Liters Per Hour (Stand Alone)",
+        category: "Ultrafiltration (UF) Machines",
+        categoryId: "uf-machines",
+        image: "images/a5f39086-a438-4d79-bf8b-6600a63bd46c.jpg",
+        price: "KES 200,000.00",
+        oldPrice: "KES 210,000.00",
+        desc: "High-capacity 1,000 LPH standalone ultrafiltration plant engineered for purifying municipal and tap water to crystal clarity.",
+        specs: ["1,000 LPH Flow Rate", "Standalone Skid", "Municipal / Tap Water", "Multi-stage Filtration"]
+      },
+      {
+        id: 11,
+        name: "Ultrafiltration Machine 500 Liters Per Hour (Stand Alone)",
+        category: "Ultrafiltration (UF) Machines",
+        categoryId: "uf-machines",
+        image: "images/694997a3-8c71-4df0-ae2e-a7c9d784d110.jpg",
+        price: "KES 170,000.00",
+        oldPrice: "KES 185,000.00",
+        desc: "Efficient 500 LPH standalone ultrafiltration system. Retains beneficial natural minerals while removing all bacteria, turbidity, and suspended solids.",
+        specs: ["500 LPH Capacity", "Standalone Skid", "Pressure Gauges", "Flow Meters"]
+      },
+      {
+        id: 12,
+        name: "Ultrafiltration Machine without Holding Tank",
+        category: "Ultrafiltration (UF) Machines",
+        categoryId: "uf-machines",
+        image: "images/3818f4fa-fe31-4cae-8dd2-95056f508dd0-removebg-preview (1).png",
+        price: "KES 170,000.00",
+        oldPrice: "KES 190,000.00",
+        desc: "Ultrafiltration machine without overhead tank, designed for purifying municipal water / Maji ya kanjo. Includes bottle rinser sink.",
+        specs: ["Purifies Municipal Water", "Direct Flow", "Bottle Rinser Sink", "Compact Design"]
+      },
+      {
+        id: 13,
+        name: "Ultrafiltration Machine (with Holding Tank)",
+        category: "Ultrafiltration (UF) Machines",
+        categoryId: "uf-machines",
+        image: "images/44850816-4afc-4817-a8e2-1414424bed03-removebg-preview (1).png",
+        price: "KES 198,000.00",
+        oldPrice: "KES 210,000.00",
+        desc: "Complete ultrafiltration system for municipal water and fresh water, equipped with overhead stainless storage tank and bottle rinser station.",
+        specs: ["Fresh / Municipal Water", "Integrated Tank", "Bottle Rinser Sink", "Turnkey Station"]
+      },
+      {
+        id: 14,
+        name: "Ultrafiltration 3-in-1 Setup",
+        category: "Ultrafiltration (UF) Machines",
+        categoryId: "uf-machines",
+        image: "images/ec09f20c-6a97-4fe9-a2ee-daffb6e0100c-removebg-preview (1).png",
+        price: "KES 210,000.00",
+        oldPrice: "KES 230,000.00",
+        desc: "Complete 3-in-1 ultrafiltration package featuring purification skid, overhead stainless steel tank, and bottle rinser sink.",
+        specs: ["3-in-1 Package", "Turnkey Setup", "Complete Plumbing", "Commercial Ready"]
+      },
+      {
+        id: 15,
+        name: "Reverse Osmosis Machine (1000LPH) Stand",
+        category: "Reverse Osmosis (RO) Machines",
+        categoryId: "ro-machines",
+        image: "images/ef93bfeb-097d-4b64-b82e-31e60bbe1194.jpg",
+        price: "KES 630,000.00",
+        oldPrice: "KES 650,000.00",
+        desc: "High-output 1,000 litres per hour commercial reverse osmosis plant mounted on a robust stainless stand for purifying borehole and hard water.",
+        specs: ["1,000 LPH Capacity", "Stainless Steel Frame", "Borehole / Hard Water", "High TDS Rejection"]
+      },
+      {
+        id: 16,
+        name: "Reverse Osmosis Machine (500LPH) 2IN1 Set Up",
+        category: "Reverse Osmosis (RO) Machines",
+        categoryId: "ro-machines",
+        image: "images/0cc00287-ecf0-43f4-922e-c3ab0a151c97.jpg",
+        price: "KES 410,000.00",
+        oldPrice: "KES 430,000.00",
+        desc: "Commercial 2-in-1 reverse osmosis setup delivering 500 LPH. Perfect for purifying salty borehole water and high-hardness water sources.",
+        specs: ["500 LPH Output", "2-in-1 Setup", "Stainless Tank & Stand", "Borehole Water"]
+      },
+      {
+        id: 17,
+        name: "Reverse Osmosis Machine (500LPH) 3IN1 Set Up",
+        category: "Reverse Osmosis (RO) Machines",
+        categoryId: "ro-machines",
+        image: "images/b79c0dd7-8d85-4cef-b382-dc48e06e1643.jpg",
+        price: "KES 430,000.00",
+        oldPrice: "KES 480,000.00",
+        desc: "Turnkey 3-in-1 reverse osmosis plant with 500 LPH output, pre-treatment media columns, overhead holding tank, and bottle rinser station.",
+        specs: ["500 LPH Output", "3-in-1 Complete Plant", "Pre-treatment Vessels", "Overhead Tank & Rinser"]
+      },
+      {
+        id: 18,
+        name: "Reverse Osmosis Machine (250lph) 2 in 1 Set Up",
+        category: "Reverse Osmosis (RO) Machines",
+        categoryId: "ro-machines",
+        image: "images/6f5dbaa8-9af5-4ead-8dff-bd9de8d6eef3.jpg",
+        price: "KES 298,000.00",
+        oldPrice: "KES 330,000.00",
+        desc: "250 LPH 2-in-1 reverse osmosis system tailored for small to mid-sized commercial water refilling shops treating borehole water.",
+        specs: ["250 LPH Flow Rate", "2-in-1 Configuration", "Borehole Specialist", "Cost-Effective Start"]
+      },
+      {
+        id: 19,
+        name: "Reverse Osmosis Machine (750lph) (Stand)",
+        category: "Reverse Osmosis (RO) Machines",
+        categoryId: "ro-machines",
+        image: "images/1bf55650-b15e-4cd3-97be-14389b8f556e.jpg",
+        price: "KES 510,000.00",
+        oldPrice: "KES 530,000.00",
+        desc: "Industrial-grade 750 litres per hour reverse osmosis system mounted on a heavy-duty stainless frame for purifying borehole water.",
+        specs: ["750 LPH Flow Rate", "Rigid Stand Skid", "High Pressure Booster", "Full Instrumentation"]
+      },
+      {
+        id: 20,
+        name: "Reverse Osmosis Machine (3000lph)",
+        category: "Reverse Osmosis (RO) Machines",
+        categoryId: "ro-machines",
+        image: "images/45d3df9d-9feb-47fb-b07c-a315d0110648.jpg",
+        price: "KES 1,500,000.00",
+        oldPrice: "KES 1,700,000.00",
+        desc: "Heavy industrial 3,000 litres per hour high-volume reverse osmosis water treatment system for packaging plants, factories, and institutions.",
+        specs: ["3,000 LPH Industrial", "Multi-Membrane Array", "Heavy-Duty Vertical Pump", "Continuous Duty"]
+      },
+      {
+        id: 21,
+        name: "Milk Chiller (From 100 Liters Capacity)",
+        category: "Milk Chillers",
+        categoryId: "milk-chillers",
+        image: "images/ae457c6c-d21e-455f-8277-af890d1ee3fe.jpg",
+        price: "From KES 250,000.00",
+        oldPrice: null,
+        desc: "Rapid cooling commercial milk chiller starting from 100L capacity with condensing cooling unit and internal food-grade agitator.",
+        specs: ["From 100 Litres", "Rapid Cooling", "Stainless Agitator", "Condenser Unit Attached"]
+      },
+      {
+        id: 22,
+        name: "Milk Pasteurizer (From 100 Liters Capacity)",
+        category: "Milk Pasteurizers",
+        categoryId: "milk-pasteurizers",
+        image: "images/d6cb3b3d-1751-4fdf-aaa6-e8903911277a.jpg",
+        price: "From KES 150,000.00",
+        oldPrice: null,
+        desc: "Batch milk pasteurizer with stainless steel heating elements, digital temperature controller, and electric motor agitator from 100L.",
+        specs: ["From 100 Litres", "Electric Heating", "Digital Temp Controller", "Sanitary Drain Valve"]
+      }
+    ];
+
+    // Categories list for filtering
+    const categories = [
+      { id: "all", name: "All Products" },
+      { id: "water-vending", name: "Water Vending Machines" },
+      { id: "milk-atms", name: "Milk ATMs" },
+      { id: "salad-atms", name: "Salad ATMs" },
+      { id: "uf-machines", name: "UF Machines" },
+      { id: "ro-machines", name: "RO Machines" },
+      { id: "milk-chillers", name: "Milk Chillers" },
+      { id: "milk-pasteurizers", name: "Milk Pasteurizers" }
+    ];
+
+    let currentFilter = "all";
+    let searchQuery = "";
+
+    // Initialize UI
+    function initCatalogueApp() {
+      const yearEl = document.getElementById("currentYear");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+      renderFilterButtons();
+      renderProducts();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initCatalogueApp);
+    } else {
+      initCatalogueApp();
+    }
+
+    function renderFilterButtons() {
+      const container = document.getElementById("filterTabs");
+      container.innerHTML = "";
+
+      categories.forEach(cat => {
+        let count = 0;
+        if (cat.id === "all") {
+          count = productsData.length;
+        } else {
+          count = productsData.filter(p => p.categoryId === cat.id).length;
+        }
+
+        const btn = document.createElement("button");
+        btn.className = `filter-btn ${cat.id === currentFilter ? "active" : ""}`;
+        btn.innerHTML = `${cat.name} <span class="count">${count}</span>`;
+        btn.onclick = () => setFilter(cat.id, cat.name);
+        container.appendChild(btn);
+      });
+    }
+
+    function setFilter(catId, catName) {
+      currentFilter = catId;
+      document.getElementById("activeFilterLabel").textContent = catName;
+      renderFilterButtons();
+      renderProducts();
+    }
+
+    function handleSearch() {
+      searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById("productGrid");
+      const resultsCount = document.getElementById("resultsCount");
+
+      const filtered = productsData.filter(item => {
+        const matchesCategory = currentFilter === "all" || item.categoryId === currentFilter;
+        const matchesSearch = searchQuery === "" || 
+          item.name.toLowerCase().includes(searchQuery) ||
+          item.desc.toLowerCase().includes(searchQuery) ||
+          item.category.toLowerCase().includes(searchQuery) ||
+          item.specs.some(s => s.toLowerCase().includes(searchQuery)) ||
+          item.price.toLowerCase().includes(searchQuery);
+
+        return matchesCategory && matchesSearch;
+      });
+
+      resultsCount.textContent = `Showing ${filtered.length} of ${productsData.length} products`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 16px;">
+            <div style="font-size: 36px; margin-bottom: 12px;">🔍</div>
+            <h3 style="color: var(--navy); margin-bottom: 6px;">No equipment found matching "${searchQuery}"</h3>
+            <p style="color: var(--muted); font-size: 14px; margin-bottom: 16px;">Try clearing your search term or selecting another category.</p>
+            <button class="btn btn-outline" onclick="resetFilters()">View All Products</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(product => {
+        const whatsappMessage = encodeURIComponent(
+          `Hello Johntech Vendors Limited, I am interested in: ${product.name} (${product.price}). Please share more details and availability.`
+        );
+        const whatsappUrl = `https://wa.me/254790825018?text=${whatsappMessage}`;
+
+        return `
+          <article class="product-card" id="product-${product.id}">
+            <div class="product-image-wrap" onclick="openModal(${product.id})" title="Click to view details">
+              <span class="category-badge">${product.category}</span>
+              ${product.oldPrice ? '<span class="discount-badge">Discounted</span>' : ''}
+              <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null; this.src='images/Johntech Water Solutions Catalogue (1).png'">
+            </div>
+
+            <div class="product-body">
+              <span class="product-category-name">${product.category}</span>
+              <h3 class="product-title">${product.name}</h3>
+              <p class="product-desc">${product.desc}</p>
+              
+              <div class="product-specs">
+                ${product.specs.map(spec => `<span class="spec-pill">${spec}</span>`).join('')}
+              </div>
+
+              <div class="product-pricing">
+                <span class="price-current">${product.price}</span>
+                ${product.oldPrice ? `<span class="price-old">${product.oldPrice}</span>` : ''}
+              </div>
+
+              <div class="card-actions">
+                <a href="${whatsappUrl}" target="_blank" rel="noopener" class="btn-enquire" title="Contact on WhatsApp">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.06-2.12-.533-1.748-.726-2.883-2.511-2.97-2.628-.088-.117-.706-.94-.706-1.792 0-.853.444-1.273.602-1.448.158-.175.347-.219.462-.219.117 0 .232.001.334.006.107.005.25.04.39.378.145.348.497 1.21.541 1.3.044.089.073.193.015.309-.059.117-.089.19-.176.294-.088.103-.186.23-.265.31-.088.087-.18.182-.078.357.103.175.457.753.98 1.22 0.675.602 1.244.789 1.42.876.176.088.278.073.382-.045.103-.117.442-.513.56-.689.118-.175.234-.146.396-.087.161.059 1.026.484 1.202.572.176.088.293.132.337.206.044.074.044.428-.1 0.833z"/>
+                  </svg>
+                  Make an Enquiry
+                </a>
+                <button class="btn-view-quick" onclick="openModal(${product.id})" title="View Details">
+                  Details
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function resetFilters() {
+      document.getElementById("searchInput").value = "";
+      searchQuery = "";
+      setFilter("all", "All Products");
+    }
+
+    // Modal Details Functions
+    function openModal(id) {
+      const product = productsData.find(p => p.id === id);
+      if (!product) return;
+
+      document.getElementById("modalImg").src = product.image;
+      document.getElementById("modalCategory").textContent = product.category;
+      document.getElementById("modalTitle").textContent = product.name;
+      document.getElementById("modalDesc").textContent = product.desc;
+      document.getElementById("modalPrice").textContent = product.price;
+
+      const oldPriceEl = document.getElementById("modalOldPrice");
+      if (product.oldPrice) {
+        oldPriceEl.textContent = product.oldPrice;
+        oldPriceEl.style.display = "block";
+      } else {
+        oldPriceEl.style.display = "none";
+      }
+
+      const specsContainer = document.getElementById("modalSpecs");
+      specsContainer.innerHTML = product.specs.map(s => `<span class="spec-pill">${s}</span>`).join('');
+
+      const whatsappMessage = encodeURIComponent(
+        `Hello Johntech Vendors Limited, I am interested in: ${product.name} (${product.price}). Please share more details and delivery timelines.`
+      );
+      document.getElementById("modalWhatsappBtn").href = `https://wa.me/254790825018?text=${whatsappMessage}`;
+
+      document.getElementById("quickModal").classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      document.getElementById("quickModal").classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === "quickModal") {
+        closeModal();
+      }
+    }
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById("mobileDrawer");
+      drawer.classList.toggle("active");
+    }
+
+    // Toast feedback notification
+    function showToast(msg, icon = "✓") {
+      const toast = document.getElementById("toastBox");
+      document.getElementById("toastIcon").textContent = icon;
+      document.getElementById("toastMsg").textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4000);
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // PDF CATALOGUE DOWNLOAD  — delivers the official 13-page verified catalogue
+    // ─────────────────────────────────────────────────────────────────────────
+    function generateCataloguePDF(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      showToast("Downloading official 13-page Johntech catalogue PDF…", "⏳");
+
+      try {
+        const link = document.createElement("a");
+        link.href = "Johntech-Vendors-Limited-Catalogue.pdf?v=" + Date.now();
+        link.download = "Johntech-Vendors-Limited-Catalogue.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        setTimeout(() => {
+          showToast("Official 13-page Catalogue PDF ready — check your Downloads!", "✓");
+        }, 800);
+      } catch (err) {
+        console.error("Download error:", err);
+        showToast("Error downloading PDF: " + err.message, "❌");
+      }
+    }
+  </script>
+</body>
+</html>

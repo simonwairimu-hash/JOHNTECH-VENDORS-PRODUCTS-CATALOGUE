@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Johntech Vendors Limited — Product Catalogue 2026</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 14mm 12mm 14mm 12mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.5;
+      font-size: 11pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1, h2, h3, h4, .brand-title {
+      font-family: 'Outfit', sans-serif;
+      color: #0b2d55;
+    }
+
+    .page {
+      page-break-after: always;
+      break-after: page;
+      min-height: 260mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #0b2d55;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark-img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .brand-title {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #0b2d55;
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      color: #ef4444;
+    }
+
+    .brand-tagline {
+      font-size: 7.5pt;
+      color: #0284c7;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-contacts {
+      text-align: right;
+      font-size: 8.5pt;
+      color: #475569;
+    }
+
+    .header-contacts strong {
+      color: #0b2d55;
+    }
+
+    .footer-bar {
+      border-top: 1px solid #cbd5e1;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8pt;
+      color: #64748b;
+      margin-top: 20px;
+    }
+
+    /* Cover Page */
+    .cover-page {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #0b2d55;
+      padding-bottom: 16px;
+    }
+
+    .cover-hero-title {
+      margin: 25px 0 15px;
+    }
+
+    .cover-hero-title h1 {
+      font-size: 28pt;
+      color: #0b2d55;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .cover-hero-title h1 em {
+      font-style: normal;
+      color: #0284c7;
+    }
+
+    .cover-subtitle {
+      font-size: 12pt;
+      color: #0284c7;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .cover-desc {
+      font-size: 10.5pt;
+      color: #475569;
+      max-width: 520px;
+      margin: 0 auto 20px;
+    }
+
+    .cover-banner-img {
+      width: 100%;
+      max-height: 125mm;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 4px 14px rgba(11, 45, 85, 0.08);
+    }
+
+    .cover-highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .cover-highlight-box {
+      background: #f0f7fd;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 8pt;
+      color: #0b2d55;
+    }
+
+    .cover-highlight-box strong {
+      display: block;
+      color: #0284c7;
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+
+    /* Product Grid on Pages */
+    .product-list-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .pdf-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 14px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .pdf-card-img-wrap {
+      height: 48mm;
+      background: #f8fafc;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #f1f5f9;
+    }
+
+    .pdf-card-img-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .pdf-cat-badge {
+      font-size: 7pt;
+      color: #0284c7;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .pdf-card-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0b2d55;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      min-height: 28pt;
+    }
+
+    .pdf-card-desc {
+      font-size: 8.5pt;
+      color: #475569;
+      line-height: 1.45;
+      margin-bottom: 10px;
+      flex: 1;
+    }
+
+    .pdf-specs-wrap {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .pdf-spec-badge {
+      font-size: 7pt;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .pdf-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 8px;
+      margin-top: auto;
+    }
+
+    .pdf-price-current {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13pt;
+      font-weight: 800;
+      color: #0b2d55;
+    }
+
+    .pdf-price-old {
+      font-size: 8.5pt;
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    .pdf-enquiry-badge {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Advantage & Prereq Sections */
+    .advantage-box-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .advantage-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 12px;
+      background: #f8fafc;
+    }
+
+    .advantage-box strong {
+      font-size: 10pt;
+      color: #0b2d55;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .advantage-box p {
+      font-size: 8.5pt;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .prereq-list {
+      font-size: 9pt;
+      color: #334155;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .prereq-item {
+      border-left: 3px solid #0284c7;
+      padding-left: 10px;
+    }
+
+    .contact-banner {
+      background: #0b2d55;
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .contact-banner h2 {
+      color: white;
+      font-size: 16pt;
+      margin-bottom: 4px;
+    }
+
+    .contact-banner p {
+      font-size: 9.5pt;
+      color: #93c5fd;
+      margin-bottom: 14px;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER PAGE -->
+  <div class="page cover-page">
+    <div class="cover-top">
+      <div class="brand-group">
+        <img src="images/logo.png" alt="JVL Logo" class="brand-mark-img">
+        <div style="text-align: left;">
+          <div class="brand-title">JOHNTECH <span>VENDORS</span></div>
+          <div class="brand-tagline">Quality • Reliability • Service</div>
+        </div>
+      </div>
+      <div class="header-contacts">
+        <div><strong>Phone:</strong> 0790 825 018</div>
+        <div><strong>Web:</strong> johntechvendorsltd.co.ke</div>
+      </div>
+    </div>
+
+    <div class="cover-hero-title">
+      <div class="cover-subtitle">Automated Vending & Water Purification Solutions</div>
+      <h1>Quality Equipment. <em>Reliable Solutions.</em></h1>
+      <p class="cover-desc">
+        Official equipment catalogue featuring commercial water vending machines, reverse osmosis systems, ultrafiltration plants, milk ATMs, and dairy processing systems.
+      </p>
+    </div>
+
+    <div>
+      <img src="images/Johntech Water Solutions Catalogue (1).png" alt="Cover" class="cover-banner-img">
+    </div>
+
+    <div class="cover-highlights">
+      <div class="cover-highlight-box">
+        <strong>Free Installation</strong>
+        Professional setup & piping by expert technicians
+      </div>
+      <div class="cover-highlight-box">
+        <strong>Free Delivery</strong>
+        Within Nairobi & surrounding areas
+      </div>
+      <div class="cover-highlight-box">
+        <strong>Free Accessories</strong>
+        Heat gun, starting top & security seals included
+      </div>
+      <div class="cover-highlight-box">
+        <strong>Free Training</strong>
+        Operator training & machine commissioning
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Johntech Vendors Limited — Official Product Catalogue 2026</span>
+      <span>Cover Page</span>
+    </div>
+  </div>
+
+  <!-- PAGE 2: PRODUCTS 1 TO 4 (WATER VENDING) -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand-group">
+        <img src="images/logo.png" alt="JVL Logo" class="brand-mark-img">
+        <div>
+          <div style="font-size: 12pt; font-weight: 800; color: #0b2d55;">JOHNTECH VENDORS LIMITED</div>
+          <div style="font-size: 8pt; color: #0284c7; font-weight: 700;">Water Vending Machines</div>
+        </div>
+      </div>
+      <div class="header-contacts">
+        <strong>Inquiries: 0790 825 018</strong> | johntechvendorsltd.co.ke
+      </div>
+    </div>
+
+    <div class="product-list-grid">
+      <!-- Product 1 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/da0fd7d7-3665-4a78-97f3-941838ef557b-removebg-preview (1).png" alt="Product 1">
+        </div>
+        <div class="pdf-cat-badge">Water Vending Machines</div>
+        <div class="pdf-card-title">One Tap Manual Water Vending Machine (Table Design)</div>
+        <div class="pdf-card-desc">Table design water vending machine for refilling already purified water. Compact and economical for kiosks and shops.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">1 Manual Tap</span>
+          <span class="pdf-spec-badge">Table Design</span>
+          <span class="pdf-spec-badge">Stainless Basin</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 65,000.00</span>
+            <span class="pdf-price-old">KES 70,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/7fbfe3e3-f5f8-4d5c-8de4-17b56f00a0ad-removebg-preview (1).png" alt="Product 2">
+        </div>
+        <div class="pdf-cat-badge">Water Vending Machines</div>
+        <div class="pdf-card-title">One Tap Automatic Water Vending Machine (Cabinet Design)</div>
+        <div class="pdf-card-desc">Upright cabinet design with automated digital control and keypad for refilling already purified water accurately.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">1 Automatic Tap</span>
+          <span class="pdf-spec-badge">Cabinet Stand</span>
+          <span class="pdf-spec-badge">Digital Keypad</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 75,000.00</span>
+            <span class="pdf-price-old">KES 90,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/771ebeb8-5452-4307-8928-385d8d8321e6-removebg-preview (1).png" alt="Product 3">
+        </div>
+        <div class="pdf-cat-badge">Water Vending Machines</div>
+        <div class="pdf-card-title">Two Taps (Automatic) Water Vending Machine</div>
+        <div class="pdf-card-desc">Dual-tap automatic water vending machine with twin digital micro-controllers for refilling already purified water at high volume.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">2 Automatic Taps</span>
+          <span class="pdf-spec-badge">Twin Controllers</span>
+          <span class="pdf-spec-badge">Stainless Steel</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 110,000.00</span>
+            <span class="pdf-price-old">KES 125,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/986a5a9a-4f11-4108-a111-391d6ac48711-removebg-preview (1).png" alt="Product 4">
+        </div>
+        <div class="pdf-cat-badge">Water Vending Machines</div>
+        <div class="pdf-card-title">Water Refilling with 300L Holding Tank (Automatic 2 Taps)</div>
+        <div class="pdf-card-desc">Water refilling station equipped with a 300-litre stainless steel overhead holding tank and 2 automatic dispensing taps.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">300L Holding Tank</span>
+          <span class="pdf-spec-badge">2 Automatic Taps</span>
+          <span class="pdf-spec-badge">Stainless Frame</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 125,000.00</span>
+            <span class="pdf-price-old">KES 130,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Johntech Vendors Limited — Call: 0790 825 018</span>
+      <span>Page 2 of 7</span>
+    </div>
+  </div>
+
+  <!-- PAGE 3: PRODUCTS 5 TO 8 (WATER VENDING & MILK/SALAD ATMS) -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand-group">
+        <img src="images/logo.png" alt="JVL Logo" class="brand-mark-img">
+        <div>
+          <div style="font-size: 12pt; font-weight: 800; color: #0b2d55;">JOHNTECH VENDORS LIMITED</div>
+          <div style="font-size: 8pt; color: #0284c7; font-weight: 700;">Water Vending & Automated ATMs</div>
+        </div>
+      </div>
+      <div class="header-contacts">
+        <strong>Inquiries: 0790 825 018</strong> | johntechvendorsltd.co.ke
+      </div>
+    </div>
+
+    <div class="product-list-grid">
+      <!-- Product 5 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/f441795e-d390-4504-b780-b2d114c2f052-removebg-preview (1).png" alt="Product 5">
+        </div>
+        <div class="pdf-cat-badge">Water Vending Machines</div>
+        <div class="pdf-card-title">Two Taps (Automatic) Water Vending Machine with Rinser</div>
+        <div class="pdf-card-desc">Two taps automatic water vending setup featuring an integrated side bottle rinser sink for refilling already purified water hygienically.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">2 Taps</span>
+          <span class="pdf-spec-badge">Bottle Rinser</span>
+          <span class="pdf-spec-badge">Digital Keypad</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 105,000.00</span>
+            <span class="pdf-price-old">KES 115,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/bd4f1436-407e-4b8c-bf92-258c51eeee7d-removebg-preview (1).png" alt="Product 6">
+        </div>
+        <div class="pdf-cat-badge">Water Vending Machines</div>
+        <div class="pdf-card-title">Water Vending Machine with 500 Liters Holding Tank (Manual)</div>
+        <div class="pdf-card-desc">Heavy-duty manual water vending station fitted with a 500-litre stainless storage tank and bottle washing station.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">500L Storage Tank</span>
+          <span class="pdf-spec-badge">Manual Taps</span>
+          <span class="pdf-spec-badge">Bottle Rinser</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 130,000.00</span>
+            <span class="pdf-price-old">KES 140,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/e219229c-c54e-4d1d-a058-f05efc551118-removebg-preview (1).png" alt="Product 7">
+        </div>
+        <div class="pdf-cat-badge">Water Vending Machines</div>
+        <div class="pdf-card-title">One Tap Automatic Water Vending Machine (Table Design)</div>
+        <div class="pdf-card-desc">Compact table design with swan-neck tap and digital keypad for automated dispensing of purified drinking water.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">1 Automatic Tap</span>
+          <span class="pdf-spec-badge">Tabletop Design</span>
+          <span class="pdf-spec-badge">Digital Control</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 75,000.00</span>
+            <span class="pdf-price-old">KES 80,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/939eaab0-9fb3-49e1-b8e6-ff36a7c82885-removebg-preview (1).png" alt="Product 8">
+        </div>
+        <div class="pdf-cat-badge">Milk ATMs</div>
+        <div class="pdf-card-title">Milk ATM (Capacity From 50Ltrs)</div>
+        <div class="pdf-card-desc">Automated commercial milk vending machine with food-grade sanitary pump, precise digital calibration, and cooling preservation.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">From 50 Litres</span>
+          <span class="pdf-spec-badge">Food-Grade Stainless</span>
+          <span class="pdf-spec-badge">Accurate Metering</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">From KES 65,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Johntech Vendors Limited — Call: 0790 825 018</span>
+      <span>Page 3 of 7</span>
+    </div>
+  </div>
+
+  <!-- PAGE 4: PRODUCTS 9 TO 12 (SALAD ATMS & UF MACHINES) -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand-group">
+        <img src="images/logo.png" alt="JVL Logo" class="brand-mark-img">
+        <div>
+          <div style="font-size: 12pt; font-weight: 800; color: #0b2d55;">JOHNTECH VENDORS LIMITED</div>
+          <div style="font-size: 8pt; color: #0284c7; font-weight: 700;">Salad ATMs & Ultrafiltration (UF)</div>
+        </div>
+      </div>
+      <div class="header-contacts">
+        <strong>Inquiries: 0790 825 018</strong> | johntechvendorsltd.co.ke
+      </div>
+    </div>
+
+    <div class="product-list-grid">
+      <!-- Product 9 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/3c8fd046-c22f-4671-ba8d-edf8e432f049-removebg-preview (1).png" alt="Product 9">
+        </div>
+        <div class="pdf-cat-badge">Salad ATMs</div>
+        <div class="pdf-card-title">Salad ATM (Cooking Oil Dispenser)</div>
+        <div class="pdf-card-desc">Smart cooking oil dispenser starting from 20 litres. Perfect for retail kiosks and supermarkets to dispense salad oil by monetary value.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">From 20 Litres</span>
+          <span class="pdf-spec-badge">Oil-Specific Pump</span>
+          <span class="pdf-spec-badge">Monetary Dispensing</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">From KES 29,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 10 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/a5f39086-a438-4d79-bf8b-6600a63bd46c.jpg" alt="Product 10">
+        </div>
+        <div class="pdf-cat-badge">Ultrafiltration (UF) Machines</div>
+        <div class="pdf-card-title">Ultrafiltration Machine 1000 LPH (Stand Alone)</div>
+        <div class="pdf-card-desc">High-capacity 1,000 LPH standalone ultrafiltration plant engineered for purifying municipal and tap water to crystal clarity.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">1,000 LPH Flow Rate</span>
+          <span class="pdf-spec-badge">Standalone Skid</span>
+          <span class="pdf-spec-badge">Municipal Water</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 200,000.00</span>
+            <span class="pdf-price-old">KES 210,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 11 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/694997a3-8c71-4df0-ae2e-a7c9d784d110.jpg" alt="Product 11">
+        </div>
+        <div class="pdf-cat-badge">Ultrafiltration (UF) Machines</div>
+        <div class="pdf-card-title">Ultrafiltration Machine 500 LPH (Stand Alone)</div>
+        <div class="pdf-card-desc">Efficient 500 LPH standalone ultrafiltration system. Retains beneficial natural minerals while removing all bacteria and turbidity.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">500 LPH Output</span>
+          <span class="pdf-spec-badge">Standalone Skid</span>
+          <span class="pdf-spec-badge">Pressure Gauges</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 170,000.00</span>
+            <span class="pdf-price-old">KES 185,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 12 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/3818f4fa-fe31-4cae-8dd2-95056f508dd0-removebg-preview (1).png" alt="Product 12">
+        </div>
+        <div class="pdf-cat-badge">Ultrafiltration (UF) Machines</div>
+        <div class="pdf-card-title">Ultrafiltration Machine without Holding Tank</div>
+        <div class="pdf-card-desc">Ultrafiltration machine without overhead tank, designed for purifying municipal water / Maji ya kanjo. Includes bottle rinser sink.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">Municipal / Tap Water</span>
+          <span class="pdf-spec-badge">Direct Flow</span>
+          <span class="pdf-spec-badge">Bottle Rinser</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 170,000.00</span>
+            <span class="pdf-price-old">KES 190,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Johntech Vendors Limited — Call: 0790 825 018</span>
+      <span>Page 4 of 7</span>
+    </div>
+  </div>
+
+  <!-- PAGE 5: PRODUCTS 13 TO 16 (UF & REVERSE OSMOSIS) -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand-group">
+        <img src="images/logo.png" alt="JVL Logo" class="brand-mark-img">
+        <div>
+          <div style="font-size: 12pt; font-weight: 800; color: #0b2d55;">JOHNTECH VENDORS LIMITED</div>
+          <div style="font-size: 8pt; color: #0284c7; font-weight: 700;">UF Systems & Reverse Osmosis Plants</div>
+        </div>
+      </div>
+      <div class="header-contacts">
+        <strong>Inquiries: 0790 825 018</strong> | johntechvendorsltd.co.ke
+      </div>
+    </div>
+
+    <div class="product-list-grid">
+      <!-- Product 13 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/44850816-4afc-4817-a8e2-1414424bed03-removebg-preview (1).png" alt="Product 13">
+        </div>
+        <div class="pdf-cat-badge">Ultrafiltration (UF) Machines</div>
+        <div class="pdf-card-title">Ultrafiltration Machine (with Holding Tank)</div>
+        <div class="pdf-card-desc">Complete ultrafiltration system for municipal and fresh water, equipped with overhead stainless storage tank and bottle rinser station.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">Fresh / Tap Water</span>
+          <span class="pdf-spec-badge">Overhead Tank</span>
+          <span class="pdf-spec-badge">Bottle Rinser</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 198,000.00</span>
+            <span class="pdf-price-old">KES 210,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 14 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/ec09f20c-6a97-4fe9-a2ee-daffb6e0100c-removebg-preview (1).png" alt="Product 14">
+        </div>
+        <div class="pdf-cat-badge">Ultrafiltration (UF) Machines</div>
+        <div class="pdf-card-title">Ultrafiltration 3-in-1 Setup</div>
+        <div class="pdf-card-desc">Complete 3-in-1 ultrafiltration package featuring purification skid, overhead stainless steel tank, and bottle rinser sink.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">3-in-1 Package</span>
+          <span class="pdf-spec-badge">Turnkey Setup</span>
+          <span class="pdf-spec-badge">Complete Plumbing</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 210,000.00</span>
+            <span class="pdf-price-old">KES 230,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 15 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/ef93bfeb-097d-4b64-b82e-31e60bbe1194.jpg" alt="Product 15">
+        </div>
+        <div class="pdf-cat-badge">Reverse Osmosis (RO) Machines</div>
+        <div class="pdf-card-title">Reverse Osmosis Machine (1000LPH) Stand</div>
+        <div class="pdf-card-desc">High-output 1,000 litres per hour commercial reverse osmosis plant mounted on a robust stainless stand for purifying borehole water.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">1,000 LPH Capacity</span>
+          <span class="pdf-spec-badge">Stainless Frame</span>
+          <span class="pdf-spec-badge">High TDS Rejection</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 630,000.00</span>
+            <span class="pdf-price-old">KES 650,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 16 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/0cc00287-ecf0-43f4-922e-c3ab0a151c97.jpg" alt="Product 16">
+        </div>
+        <div class="pdf-cat-badge">Reverse Osmosis (RO) Machines</div>
+        <div class="pdf-card-title">Reverse Osmosis Machine (500LPH) 2IN1 Set Up</div>
+        <div class="pdf-card-desc">Commercial 2-in-1 reverse osmosis setup delivering 500 LPH. Perfect for purifying salty borehole water and high-hardness water.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">500 LPH Output</span>
+          <span class="pdf-spec-badge">2-in-1 Setup</span>
+          <span class="pdf-spec-badge">Borehole Water</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 410,000.00</span>
+            <span class="pdf-price-old">KES 430,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Johntech Vendors Limited — Call: 0790 825 018</span>
+      <span>Page 5 of 7</span>
+    </div>
+  </div>
+
+  <!-- PAGE 6: PRODUCTS 17 TO 20 (HIGH CAPACITY RO PLANTS) -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand-group">
+        <img src="images/logo.png" alt="JVL Logo" class="brand-mark-img">
+        <div>
+          <div style="font-size: 12pt; font-weight: 800; color: #0b2d55;">JOHNTECH VENDORS LIMITED</div>
+          <div style="font-size: 8pt; color: #0284c7; font-weight: 700;">Commercial & Industrial RO Plants</div>
+        </div>
+      </div>
+      <div class="header-contacts">
+        <strong>Inquiries: 0790 825 018</strong> | johntechvendorsltd.co.ke
+      </div>
+    </div>
+
+    <div class="product-list-grid">
+      <!-- Product 17 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/b79c0dd7-8d85-4cef-b382-dc48e06e1643.jpg" alt="Product 17">
+        </div>
+        <div class="pdf-cat-badge">Reverse Osmosis (RO) Machines</div>
+        <div class="pdf-card-title">Reverse Osmosis Machine (500LPH) 3IN1 Set Up</div>
+        <div class="pdf-card-desc">Turnkey 3-in-1 reverse osmosis plant with 500 LPH output, pre-treatment media columns, overhead holding tank, and bottle rinser.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">500 LPH Output</span>
+          <span class="pdf-spec-badge">3-in-1 Turnkey</span>
+          <span class="pdf-spec-badge">Pre-treatment Columns</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 430,000.00</span>
+            <span class="pdf-price-old">KES 480,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 18 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/6f5dbaa8-9af5-4ead-8dff-bd9de8d6eef3.jpg" alt="Product 18">
+        </div>
+        <div class="pdf-cat-badge">Reverse Osmosis (RO) Machines</div>
+        <div class="pdf-card-title">Reverse Osmosis Machine (250lph) 2 in 1 Set Up</div>
+        <div class="pdf-card-desc">250 LPH 2-in-1 reverse osmosis system tailored for small to mid-sized commercial water refilling shops treating borehole water.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">250 LPH Output</span>
+          <span class="pdf-spec-badge">2-in-1 Setup</span>
+          <span class="pdf-spec-badge">Borehole Water</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 298,000.00</span>
+            <span class="pdf-price-old">KES 330,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 19 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/1bf55650-b15e-4cd3-97be-14389b8f556e.jpg" alt="Product 19">
+        </div>
+        <div class="pdf-cat-badge">Reverse Osmosis (RO) Machines</div>
+        <div class="pdf-card-title">Reverse Osmosis Machine (750lph) (Stand)</div>
+        <div class="pdf-card-desc">Industrial-grade 750 litres per hour reverse osmosis system mounted on a heavy-duty stainless frame for purifying borehole water.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">750 LPH Flow Rate</span>
+          <span class="pdf-spec-badge">Rigid Stand Skid</span>
+          <span class="pdf-spec-badge">High Pressure Pump</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 510,000.00</span>
+            <span class="pdf-price-old">KES 530,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 20 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/45d3df9d-9feb-47fb-b07c-a315d0110648.jpg" alt="Product 20">
+        </div>
+        <div class="pdf-cat-badge">Reverse Osmosis (RO) Machines</div>
+        <div class="pdf-card-title">Reverse Osmosis Machine (3000lph)</div>
+        <div class="pdf-card-desc">Heavy industrial 3,000 litres per hour high-volume reverse osmosis water treatment system for packaging plants and institutions.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">3,000 LPH Output</span>
+          <span class="pdf-spec-badge">Industrial Multi-Vessel</span>
+          <span class="pdf-spec-badge">Continuous Duty</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">KES 1,500,000.00</span>
+            <span class="pdf-price-old">KES 1,700,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Johntech Vendors Limited — Call: 0790 825 018</span>
+      <span>Page 6 of 7</span>
+    </div>
+  </div>
+
+  <!-- PAGE 7: PRODUCTS 21 & 22 (DAIRY EQUIPMENT) + ADVANTAGES & PREREQUISITES -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand-group">
+        <img src="images/logo.png" alt="JVL Logo" class="brand-mark-img">
+        <div>
+          <div style="font-size: 12pt; font-weight: 800; color: #0b2d55;">JOHNTECH VENDORS LIMITED</div>
+          <div style="font-size: 8pt; color: #0284c7; font-weight: 700;">Dairy Equipment & Complimentary Services</div>
+        </div>
+      </div>
+      <div class="header-contacts">
+        <strong>Inquiries: 0790 825 018</strong> | johntechvendorsltd.co.ke
+      </div>
+    </div>
+
+    <!-- Products 21 and 22 -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+      <!-- Product 21 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/ae457c6c-d21e-455f-8277-af890d1ee3fe.jpg" alt="Product 21">
+        </div>
+        <div class="pdf-cat-badge">Milk Chillers</div>
+        <div class="pdf-card-title">Milk Chiller (From 100 Liters Capacity)</div>
+        <div class="pdf-card-desc">Rapid cooling commercial milk chiller starting from 100L capacity with condensing cooling unit and internal food-grade agitator.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">From 100 Litres</span>
+          <span class="pdf-spec-badge">Rapid Cooling</span>
+          <span class="pdf-spec-badge">Condenser Attached</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">From KES 250,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+
+      <!-- Product 22 -->
+      <div class="pdf-card">
+        <div class="pdf-card-img-wrap">
+          <img src="images/d6cb3b3d-1751-4fdf-aaa6-e8903911277a.jpg" alt="Product 22">
+        </div>
+        <div class="pdf-cat-badge">Milk Pasteurizers</div>
+        <div class="pdf-card-title">Milk Pasteurizer (From 100 Liters Capacity)</div>
+        <div class="pdf-card-desc">Batch milk pasteurizer with stainless steel heating elements, digital temperature controller, and electric motor agitator from 100L.</div>
+        <div class="pdf-specs-wrap">
+          <span class="pdf-spec-badge">From 100 Litres</span>
+          <span class="pdf-spec-badge">Batch Pasteurization</span>
+          <span class="pdf-spec-badge">Sanitary Valve</span>
+        </div>
+        <div class="pdf-price-row">
+          <div>
+            <span class="pdf-price-current">From KES 150,000.00</span>
+          </div>
+          <span class="pdf-enquiry-badge">WhatsApp Enquiry</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- The JohnTech Advantage -->
+    <div style="margin-bottom: 14px;">
+      <h3 style="font-size: 13pt; color: #0b2d55; border-bottom: 2px solid #0284c7; padding-bottom: 4px; margin-bottom: 10px;">
+        The JohnTech Advantage — Included Complimentary Services
+      </h3>
+      <div class="advantage-box-grid">
+        <div class="advantage-box">
+          <strong>✓ Free Professional Installation</strong>
+          <p>Complete mechanical piping, electrical hookups, and machine calibration by qualified technicians.</p>
+        </div>
+        <div class="advantage-box">
+          <strong>✓ Free Delivery</strong>
+          <p>Complimentary delivery within Nairobi and surrounding areas.</p>
+        </div>
+        <div class="advantage-box">
+          <strong>✓ Free Heat Gun & Starter Pack</strong>
+          <p>Industrial heat shrink gun, starting caps, and security neck seals.</p>
+        </div>
+        <div class="advantage-box">
+          <strong>✓ Free Operator Training & Commissioning</strong>
+          <p>Full staff training on operation, washing, sanitization, and maintenance.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Prerequisites -->
+    <div>
+      <h3 style="font-size: 13pt; color: #0b2d55; border-bottom: 2px solid #0284c7; padding-bottom: 4px; margin-bottom: 8px;">
+        Technical Prerequisites
+      </h3>
+      <div class="prereq-list">
+        <div class="prereq-item">
+          <strong>Water Storage:</strong> A minimum 2,000-litre water storage tank is required for optimal operation.
+        </div>
+        <div class="prereq-item">
+          <strong>Water Testing:</strong> For RO and UF machines, Johntech tests source water for salt and TDS levels to customize the machine. Water testing is free.
+        </div>
+        <div class="prereq-item">
+          <strong>Printed Laboratory Report:</strong> A formal printed laboratory report is available upon request for KES 5,500.
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Banner -->
+    <div class="contact-banner">
+      <h2>JOHNTECH VENDORS LIMITED</h2>
+      <p>“Innovative Water Solutions for a Sustainable Future.”</p>
+      <div class="contact-row">
+        <span>Phone: 0790 825 018</span>
+        <span>WhatsApp: 0790 825 018</span>
+        <span>Website: johntechvendorsltd.co.ke</span>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Johntech Vendors Limited — Quality • Reliability • Service</span>
+      <span>Page 7 of 7</span>
+    </div>
+  </div>
+
+</body>
+</html>
